@@ -5,3 +5,20 @@ if ('serviceWorker' in navigator) {
       .catch(err => console.error('Service Worker failed:', err));
   });
 }
+
+
+function requestNotificationPermission() {
+  Notification.requestPermission().then(permission => {
+    if (permission === "granted") {
+      new Notification("PWA Notification", {
+        body: "You have enabled notifications!",
+        icon: "/icon-192.png"
+      });
+    } else {
+      console.log("Permission denied");
+    }
+  });
+}
+
+
+requestNotificationPermission()

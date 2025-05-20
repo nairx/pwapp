@@ -14,3 +14,14 @@ self.addEventListener('fetch', event => {
       .then(response => response || fetch(event.request))
   );
 });
+
+// self.addEventListener('push', event => {
+//   const data = event.data?.json() || { title: "Default Title", body: "No content" };
+
+//   event.waitUntil(
+//     self.registration.showNotification(data.title, {
+//       body: data.body,
+//       icon: '/icon-192.png'
+//     })
+//   );
+// });
